@@ -1,0 +1,12 @@
+version: "2.0"
+
+services:
+  letsencrypt_nginx:
+    build: .
+    image: qpair/letsencrypt_nginx:1.0.0
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+	  # The left side path should be wherever the webroot is on local, while right is just the root location of Nginx server on docker
+      - /home/ec2-user/cert:/usr/share/nginx/html
